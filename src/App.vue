@@ -174,42 +174,6 @@
                         <td>2</td>
                       </tr>
                       <tr>
-                        <td>CIS 171</td>
-                        <td>
-                          <span class="fw-bold">Computer Programming I</span>
-                        </td>
-                        <td>
-                          <span class="badge bg-secondary"> CS </span>
-                        </td>
-                        <td>3</td>
-                      </tr>
-                      <tr>
-                        <td>COM 140</td>
-                        <td>
-                          <span class="fw-bold">Speech</span>
-                        </td>
-                        <td>
-                          <span class="badge bg-primary"> LAC </span>
-                        </td>
-                        <td>3</td>
-                      </tr>
-                      <tr>
-                        <td>CYB 101</td>
-                        <td>
-                          <span class="fw-bold">Intro to Cybersecurity</span>
-                        </td>
-                        <td></td>
-                        <td>3</td>
-                      </tr>
-                      <tr>
-                        <td>MAT 120</td>
-                        <td>
-                          <span class="fw-bold">Precalculus</span>
-                        </td>
-                        <td></td>
-                        <td>3</td>
-                      </tr>
-                      <tr>
                         <td></td>
                         <td></td>
                         <td></td>
@@ -260,12 +224,12 @@
 </template>
 
 <script>
-//import HelloWorld from './components/HelloWorld.vue'
+// import SemesterSchedule from './components/SemesterSchedule.vue'
 
 export default {
   name: "App",
   components: {
-    //HelloWorld
+    // SemesterSchedule
   },
   data() {
     return {
@@ -283,9 +247,11 @@ export default {
           classes: [],
         },
       ],
-      courses: [
-        { id: "CIS171", name: "Computer Programming I" },
-        { id: "CIS211", name: "Intro to Web Design" },
+      courses: [],
+      lacCourses: [],
+      cisCourses: [
+        // { id: "CIS171", name: "Computer Programming I" },
+        // { id: "CIS211", name: "Intro to Web Design" },
       ],
       options: [
         { value: null, text: "Please select an option" },
