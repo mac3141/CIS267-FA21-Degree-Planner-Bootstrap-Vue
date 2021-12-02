@@ -3,12 +3,7 @@
 </template>
 
 <script>
-export default {
-  name: "SemesterSchedule",
-  props: {
-    schedules: Array,
-  },
-};
+export default {};
 </script>
 
 <style>

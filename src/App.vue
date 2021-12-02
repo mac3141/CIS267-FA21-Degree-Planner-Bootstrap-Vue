@@ -17,7 +17,7 @@
               <b-tab title="LAC" active>
                 <div id="lac">
                   <div class="my-4 text-left" id="lac-reqs">
-                    <div class="card my-2">
+                    <!-- <div class="card my-2">
                       <div class="card-body">
                         <div class="row">
                           <h5 class="col-9">
@@ -75,15 +75,16 @@
                           </p>
                         </b-collapse>
                       </div>
-                    </div>
+                    </div> -->
+                    <CourseInfo v-for="c in lacCourses" :key="c" :course="c" />
                   </div>
                 </div>
               </b-tab>
 
               <b-tab title="CS">
-                <div id="lac">
-                  <div class="my-4 text-left" id="lac-reqs">
-                    <div class="card my-2">
+                <div id="cs">
+                  <div class="my-4 text-left" id="cs-reqs">
+                    <!-- <div class="card my-2">
                       <div class="card-body">
                         <div class="row">
                           <h5 class="col-9">
@@ -127,7 +128,8 @@
                           </p>
                         </b-collapse>
                       </div>
-                    </div>
+                    </div> -->
+                    <CourseInfo v-for="c in cssdCourses" :key="c" :course="c" />
                   </div>
                 </div>
               </b-tab>
@@ -224,12 +226,14 @@
 </template>
 
 <script>
-// import SemesterSchedule from './components/SemesterSchedule.vue'
+// import SemesterSchedule from './components/SemesterSchedule.vue';
+import CourseInfo from "./components/CourseInfo.vue";
 
 export default {
   name: "App",
   components: {
-    // SemesterSchedule
+    // SemesterSchedule,
+    CourseInfo,
   },
   data() {
     return {
@@ -247,22 +251,31 @@ export default {
           classes: [],
         },
       ],
-      courses: [],
-      lacCourses: [],
-      cisCourses: [
-        // { id: "CIS171", name: "Computer Programming I" },
-        // { id: "CIS211", name: "Intro to Web Design" },
-      ],
-      options: [
-        { value: null, text: "Please select an option" },
-        { value: "fall2019", text: "Fall 2019" },
-        { value: "spring2020", text: "Spring 2020" },
-        { value: { C: "3PO" }, text: "This is an option with object value" },
-        { value: "d", text: "This one is disabled", disabled: true },
-      ],
-      selected: null,
+      allCourses: this.getAllCourses(), // json object
+      lacCourses: [], // array of lac course objects
+      cssdCourses: [], // array of cssd course objects
     };
   },
+  methods: {
+    getAllCourses() {
+      var data = require("./courses.json");
+      return data;
+    },
+    getLACCourses() {
+      this.allCourses["LAC Courses"].forEach(course => {
+        this.lacCourses.push(course);
+      });
+    },
+    getCSSDCourses() {
+      this.allCourses["CSSD Courses"].forEach(course => {
+        this.cssdCourses.push(course);
+      });
+    },
+  },
+  mounted() {
+    this.getLACCourses();
+    this.getCSSDCourses();
+  }
 };
 </script>
 

@@ -1,5 +1,5 @@
 {
-    "lacCourses": [
+    "LAC Courses": [
         {
             "Course ID": "BIB 121",
             "Course Name": "Life of Christ",
@@ -501,7 +501,7 @@
             "Subcategory": ""
         }
     ],
-    "cssdCourses": [
+    "CSSD Courses": [
         {
             "Course ID": "CIS 171",
             "Course Name": "Computer Programming I",
