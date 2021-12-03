@@ -76,7 +76,7 @@
                         </b-collapse>
                       </div>
                     </div> -->
-                    <CourseInfo v-for="c in lacCourses" :key="c" :course="c" />
+                    <CourseInfo v-for="l in lacCourses" :key="l" :course="l" />
                   </div>
                 </div>
               </b-tab>
@@ -140,7 +140,7 @@
           <div class="col-lg-6 semester-schedules">
             <h3>Semester Schedules</h3>
 
-            <div
+            <!-- <div
               v-for="schedule in schedules"
               v-bind:key="schedule.id"
               class="accordion my-4"
@@ -185,7 +185,9 @@
                   </div>
                 </b-collapse>
               </div>
-            </div>
+            </div> -->
+
+            <SemesterSchedule v-for="s in schedules" :key="s" :schedule="s" :classes="s.classes" :id="s.id" class="accordion my-4" />
           </div>
 
           <!-- Table of Contents Sidebar -->
@@ -226,13 +228,13 @@
 </template>
 
 <script>
-// import SemesterSchedule from './components/SemesterSchedule.vue';
+import SemesterSchedule from './components/SemesterSchedule.vue';
 import CourseInfo from "./components/CourseInfo.vue";
 
 export default {
   name: "App",
   components: {
-    // SemesterSchedule,
+    SemesterSchedule,
     CourseInfo,
   },
   data() {
@@ -271,6 +273,10 @@ export default {
         this.cssdCourses.push(course);
       });
     },
+    addClass(c) {
+      // add class to selected schedule
+      return c;
+    }
   },
   mounted() {
     this.getLACCourses();
