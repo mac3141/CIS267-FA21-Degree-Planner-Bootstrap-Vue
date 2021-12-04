@@ -129,7 +129,7 @@
                         </b-collapse>
                       </div>
                     </div> -->
-                    <CourseInfo v-for="c in cssdCourses" :key="c" :course="c" />
+                    <CourseInfo v-for="c in cssdCourses" :key="c" :course="c" @add-course="addCourseToSchedule()" />
                   </div>
                 </div>
               </b-tab>
@@ -273,9 +273,9 @@ export default {
         this.cssdCourses.push(course);
       });
     },
-    addClass(c) {
+    addCourseToSchedule() {
       // add class to selected schedule
-      return c;
+      console.log("clickii");
     }
   },
   mounted() {

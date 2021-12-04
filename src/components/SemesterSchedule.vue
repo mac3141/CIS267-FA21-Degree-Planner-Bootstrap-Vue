@@ -52,7 +52,7 @@ export default {
       // add all hours in table
       var total = 0;
 
-      this.classes.forEach((c) => {
+      this.classes.forEach(c => {
         total += parseInt(c["Credit Hours"]);
       });
 
