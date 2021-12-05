@@ -75,7 +75,6 @@ export default {
       return courseID.replace(" ", "").replace("/", "-").toLowerCase();
     },
     emitAdd() {
-      console.log("click");
       this.$emit("add-course", this.selected, this.course);
     },
   },

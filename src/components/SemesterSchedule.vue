@@ -18,7 +18,7 @@
             <td></td>
             <th>Credits</th>
           </thead>
-          <tr v-for="c in classes" :key="c">
+          <tr v-for="c in classes" :key="c.id">
             <td>{{ c["Course ID"] }}</td>
             <td>
               <span class="fw-bold">{{ c["Course Name"] }}</span>

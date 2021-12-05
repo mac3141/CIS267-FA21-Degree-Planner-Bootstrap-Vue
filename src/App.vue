@@ -76,7 +76,12 @@
                         </b-collapse>
                       </div>
                     </div> -->
-                    <CourseInfo v-for="l in lacCourses" :key="l" :course="l" />
+                    <CourseInfo
+                      v-for="l in lacCourses"
+                      :key="l.id"
+                      :course="l"
+                      @add-course="addCourseToSchedule"
+                    />
                   </div>
                 </div>
               </b-tab>
@@ -129,7 +134,12 @@
                         </b-collapse>
                       </div>
                     </div> -->
-                    <CourseInfo v-for="c in cssdCourses" :key="c" :course="c" @add-course="addCourseToSchedule()" />
+                    <CourseInfo
+                      v-for="c in cssdCourses"
+                      :key="c.id"
+                      :course="c"
+                      @add-course="addCourseToSchedule"
+                    />
                   </div>
                 </div>
               </b-tab>
@@ -187,7 +197,14 @@
               </div>
             </div> -->
 
-            <SemesterSchedule v-for="s in schedules" :key="s" :schedule="s" :classes="s.classes" :id="s.id" class="accordion my-4" />
+            <SemesterSchedule
+              v-for="s in schedules"
+              :key="s.id"
+              :schedule="s"
+              :classes="s.classes"
+              :id="s.id"
+              class="accordion my-4"
+            />
           </div>
 
           <!-- Table of Contents Sidebar -->
@@ -228,7 +245,7 @@
 </template>
 
 <script>
-import SemesterSchedule from './components/SemesterSchedule.vue';
+import SemesterSchedule from "./components/SemesterSchedule.vue";
 import CourseInfo from "./components/CourseInfo.vue";
 
 export default {
@@ -300,24 +317,36 @@ export default {
       return data;
     },
     getLACCourses() {
-      this.allCourses["LAC Courses"].forEach(course => {
+      this.allCourses["LAC Courses"].forEach((course) => {
         this.lacCourses.push(course);
       });
     },
     getCSSDCourses() {
-      this.allCourses["CSSD Courses"].forEach(course => {
+      this.allCourses["CSSD Courses"].forEach((course) => {
         this.cssdCourses.push(course);
       });
     },
-    addCourseToSchedule() {
+    addCourseToSchedule(scheduleID, course) {
+      // check if a semester is selected
+      if (scheduleID == null) {
+        console.log("No semester selected");
+        return;
+      }
+
       // add class to selected schedule
-      console.log("clickii");
-    }
+      this.schedules.forEach((s) => {
+        if (s.id === scheduleID) {
+          s.classes.push(course);
+        }
+      });
+
+      console.log(`${course["Course ID"]} successfully added to ${scheduleID}`);
+    },
   },
   mounted() {
     this.getLACCourses();
     this.getCSSDCourses();
-  }
+  },
 };
 </script>
 
