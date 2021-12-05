@@ -197,12 +197,12 @@
               <ul>
                 <li><a href="#fall2020">Fall 2020</a></li>
                 <li><a href="#spring2021">Spring 2021</a></li>
-                <li><a href="">Fall 2021</a></li>
-                <li><a href="">Spring 2022</a></li>
-                <li><a href="">Fall 2022</a></li>
-                <li><a href="">Spring 2023</a></li>
-                <li><a href="">Fall 2023</a></li>
-                <li><a href="">Spring 2024</a></li>
+                <li><a href="#fall2021">Fall 2021</a></li>
+                <li><a href="#spring2022">Spring 2022</a></li>
+                <li><a href="#fall2022">Fall 2022</a></li>
+                <li><a href="#spring2023">Spring 2023</a></li>
+                <li><a href="#fall2023">Fall 2023</a></li>
+                <li><a href="#spring2024">Spring 2024</a></li>
               </ul>
             </nav>
           </div>
@@ -241,15 +241,51 @@ export default {
     return {
       schedules: [
         {
-          name: "Fall 2019",
-          id: "fall2019",
+          name: "Fall 2020",
+          id: "fall2020",
           collapseId: "fall2019schedule",
           classes: [],
         },
         {
-          name: "Spring 2020",
-          id: "spring2020",
-          collapseId: "spring2020schedule",
+          name: "Spring 2021",
+          id: "spring2021",
+          collapseId: "spring2021schedule",
+          classes: [],
+        },
+        {
+          name: "Fall 2021",
+          id: "fall2021",
+          collapseId: "fall2021schedule",
+          classes: [],
+        },
+        {
+          name: "Spring 2022",
+          id: "spring2022",
+          collapseId: "spring2022schedule",
+          classes: [],
+        },
+        {
+          name: "Fall 2022",
+          id: "fall2022",
+          collapseId: "fall2022schedule",
+          classes: [],
+        },
+        {
+          name: "Spring 2023",
+          id: "spring2023",
+          collapseId: "spring2023schedule",
+          classes: [],
+        },
+        {
+          name: "Fall 2023",
+          id: "fall2023",
+          collapseId: "fall2023schedule",
+          classes: [],
+        },
+        {
+          name: "Spring 2024",
+          id: "spring2024",
+          collapseId: "spring2024schedule",
           classes: [],
         },
       ],

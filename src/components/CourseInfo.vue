@@ -19,18 +19,29 @@
       <div class="row">
         <b-form-select v-model="selected" :options="options"></b-form-select>
 
-        <b-button block variant="outline-secondary" class="my-2" @click="emitAdd()">Add</b-button>
+        <b-button
+          block
+          variant="outline-secondary"
+          class="my-2"
+          @click="emitAdd()"
+          >Add</b-button
+        >
       </div>
 
       <div class="row">
         <div class="col">
-          <a class="card-link fw-light" v-b-toggle="convertID(course['Course ID'])"
+          <a
+            class="card-link fw-light"
+            v-b-toggle="convertID(course['Course ID'])"
             >Course description ›</a
           >
         </div>
       </div>
 
-      <b-collapse class="course-description collapse card-text" :id="convertID(course['Course ID'])">
+      <b-collapse
+        class="course-description collapse card-text"
+        :id="convertID(course['Course ID'])"
+      >
         <p class="text-muted card-text">{{ course["Course Description"] }}</p>
       </b-collapse>
     </div>
@@ -47,11 +58,17 @@ export default {
     return {
       options: [
         { value: null, text: "Please select an option" },
-        { value: "fall2019", text: "Fall 2019" },
-        { value: "spring2020", text: "Spring 2020" },
+        { value: "fall2020", text: "Fall 2020" },
+        { value: "spring2021", text: "Spring 2021" },
+        { value: "fall2021", text: "Fall 2021" },
+        { value: "spring2022", text: "Spring 2022" },
+        { value: "fall2022", text: "Fall 2022" },
+        { value: "spring2023", text: "Spring 2023" },
+        { value: "fall2023", text: "Fall 2023" },
+        { value: "spring2024", text: "Spring 2024" },
       ],
       selected: null,
-    }
+    };
   },
   methods: {
     convertID(courseID) {
@@ -60,7 +77,7 @@ export default {
     emitAdd() {
       console.log("click");
       this.$emit("add-course", this.selected, this.course);
-    }
+    },
   },
 };
 </script>
