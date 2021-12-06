@@ -24,7 +24,9 @@
               <span class="fw-bold">{{ c["Course Name"] }}</span>
             </td>
             <td>
-              <span class="badge bg-primary">{{ c["Category"] }}</span>
+              <span :class="getBadgeClass(c['Category'].toLowerCase())">{{
+                c["Category"]
+              }}</span>
             </td>
             <td>{{ c["Credit Hours"] }}</td>
           </tr>
@@ -52,11 +54,18 @@ export default {
       // add all hours in table
       var total = 0;
 
-      this.classes.forEach(c => {
+      this.classes.forEach((c) => {
         total += parseInt(c["Credit Hours"]);
       });
 
       return total;
+    },
+    getBadgeClass(category) {
+      if (category === "lac") {
+        return "badge bg-primary";
+      } else {
+        return "badge bg-secondary";
+      }
     },
   },
 };

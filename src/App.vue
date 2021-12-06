@@ -17,65 +17,6 @@
               <b-tab title="LAC" active>
                 <div id="lac">
                   <div class="my-4 text-left" id="lac-reqs">
-                    <!-- <div class="card my-2">
-                      <div class="card-body">
-                        <div class="row">
-                          <h5 class="col-9">
-                            <b>Life of Christ</b>
-                          </h5>
-                          <p class="col-3 text-right">2 hours</p>
-                        </div>
-
-                        <div class="row">
-                          <div class="col-8">
-                            <p class="card-subtitle">BIB 121</p>
-                          </div>
-                          <div class="col-4 text-right">
-                            <span class="text-muted">Fall</span>
-                          </div>
-                        </div>
-                        <div class="row">
-                          <b-form-select
-                            v-model="selected"
-                            :options="options"
-                          ></b-form-select>
-
-                          <b-button
-                            block
-                            variant="outline-secondary"
-                            class="my-2"
-                            >Add</b-button
-                          >
-                        </div>
-
-                        <div class="row">
-                          <div class="col">
-                            <a
-                              href="#bib121"
-                              class="card-link fw-light"
-                              v-b-toggle="bib121"
-                              >Course description ›</a
-                            >
-                          </div>
-                        </div>
-
-                        <b-collapse
-                          class="course-description collapse card-text"
-                          id="bib121"
-                        >
-                          <p class="text-muted card-text">
-                            A thorough textual study of the life of Jesus the
-                            Christ. Emphasis is given to his virgin birth, his
-                            message and ministry, his crucifixion, his
-                            resurrection, and his ascension, all leading to a
-                            greater awareness of his greatness as the Son of God
-                            and Savior of the world. Moral, doctrinal,
-                            historical, and practical aspects of the life of
-                            Christ are also emphasized. (Text course.)
-                          </p>
-                        </b-collapse>
-                      </div>
-                    </div> -->
                     <CourseInfo
                       v-for="l in lacCourses"
                       :key="l.id"
@@ -89,51 +30,6 @@
               <b-tab title="CS">
                 <div id="cs">
                   <div class="my-4 text-left" id="cs-reqs">
-                    <!-- <div class="card my-2">
-                      <div class="card-body">
-                        <div class="row">
-                          <h5 class="col-9">
-                            <b>Computer Programming I</b>
-                          </h5>
-                          <p class="col-3 text-right">2 hours</p>
-                        </div>
-
-                        <div class="row">
-                          <div class="col-8">
-                            <p class="card-subtitle">BIB 121</p>
-                          </div>
-                          <div class="col-4 text-right">
-                            <span class="text-muted">Fall</span>
-                          </div>
-                        </div>
-                        <div class="row">
-                          <div class="col">
-                            <a
-                              href="#bib121"
-                              class="card-link fw-light"
-                              v-b-toggle="bib121"
-                              >Course description ›</a
-                            >
-                          </div>
-                        </div>
-
-                        <b-collapse
-                          class="course-description collapse card-text"
-                          id="bib121"
-                        >
-                          <p class="text-muted card-text">
-                            A thorough textual study of the life of Jesus the
-                            Christ. Emphasis is given to his virgin birth, his
-                            message and ministry, his crucifixion, his
-                            resurrection, and his ascension, all leading to a
-                            greater awareness of his greatness as the Son of God
-                            and Savior of the world. Moral, doctrinal,
-                            historical, and practical aspects of the life of
-                            Christ are also emphasized. (Text course.)
-                          </p>
-                        </b-collapse>
-                      </div>
-                    </div> -->
                     <CourseInfo
                       v-for="c in cssdCourses"
                       :key="c.id"
@@ -149,53 +45,6 @@
           <!-- Semester Schedules -->
           <div class="col-lg-6 semester-schedules">
             <h3>Semester Schedules</h3>
-
-            <!-- <div
-              v-for="schedule in schedules"
-              v-bind:key="schedule.id"
-              class="accordion my-4"
-              id="schedule.id"
-            >
-              <div class="accordion-item">
-                <h2
-                  class="accordion-header"
-                  id="fall2019heading"
-                  v-b-toggle:[schedule.collapseId]
-                >
-                  <div class="">
-                    <h4 class="my-0">{{ schedule.name }}</h4>
-                  </div>
-                </h2>
-                <b-collapse :id="schedule.collapseId">
-                  <div class="accordion-body">
-                    <table class="table table-hover">
-                      <thead>
-                        <th>Course</th>
-                        <td></td>
-                        <td></td>
-                        <th>Credits</th>
-                      </thead>
-                      <tr>
-                        <td>BIB 121</td>
-                        <td>
-                          <span class="fw-bold"> The Life of Christ </span>
-                        </td>
-                        <td>
-                          <span class="badge bg-primary"> LAC </span>
-                        </td>
-                        <td>2</td>
-                      </tr>
-                      <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td class="fw-bold">14</td>
-                      </tr>
-                    </table>
-                  </div>
-                </b-collapse>
-              </div>
-            </div> -->
 
             <SemesterSchedule
               v-for="s in schedules"
