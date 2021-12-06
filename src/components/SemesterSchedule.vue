@@ -2,7 +2,7 @@
   <div class="accordion-item">
     <h2
       class="accordion-header"
-      id="fall2019heading"
+      :id="schedule.id + 'heading'"
       v-b-toggle:[schedule.collapseId]
     >
       <div class="">
@@ -16,7 +16,8 @@
             <th>Course</th>
             <td></td>
             <td></td>
-            <th>Credits</th>
+            <th id="hours">Credits</th>
+            <td></td>
           </thead>
           <tr v-for="c in classes" :key="c.id">
             <td>{{ c["Course ID"] }}</td>
@@ -28,13 +29,15 @@
                 c["Category"]
               }}</span>
             </td>
-            <td>{{ c["Credit Hours"] }}</td>
+            <td id="hours">{{ c["Credit Hours"] }}</td>
+            <td><b-icon id="remove" icon="trash" variant="danger" @click="$emit('remove-class', schedule, c)"></b-icon></td>
           </tr>
           <tr>
             <td></td>
             <td></td>
             <td></td>
-            <td class="fw-bold">{{ this.totalHours() }}</td>
+            <td class="fw-bold" id="hours">{{ this.totalHours() }}</td>
+            <td></td>
           </tr>
         </table>
       </div>
@@ -71,5 +74,14 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+#remove:hover {
+  transform: scale(1.2);
+  cursor: pointer;
+  transition: 0.15s;
+}
+
+#hours {
+  text-align: center;
+}
 </style>

@@ -53,6 +53,7 @@
               :classes="s.classes"
               :id="s.id"
               class="accordion my-4"
+              @remove-class="removeCourseFromSchedule"
             />
           </div>
 
@@ -186,10 +187,17 @@ export default {
       this.schedules.forEach((s) => {
         if (s.id === scheduleID) {
           s.classes.push(course);
+          return;
         }
       });
 
       console.log(`${course["Course ID"]} successfully added to ${scheduleID}`);
+    },
+    removeCourseFromSchedule(schedule, course) {
+      schedule.classes.splice(schedule.classes.indexOf(course), 1);
+      console.log(
+        `${course["Course ID"]} successfully removed from ${schedule.id}`
+      );
     },
   },
   mounted() {
